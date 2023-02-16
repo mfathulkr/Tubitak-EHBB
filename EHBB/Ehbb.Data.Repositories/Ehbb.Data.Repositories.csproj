@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Ehbb.Data.DataAccess\Ehbb.Data.DataAccess.csproj" />
+    <ProjectReference Include="..\Ehbb.Data.Entities\Ehbb.Data.Entities.csproj" />
+    <ProjectReference Include="..\Ehbb.Domain.Dtos\Ehbb.Domain.Dtos.csproj" />
+  </ItemGroup>
+
+</Project>
