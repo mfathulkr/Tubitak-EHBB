@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "USV9Fe7dg1PAOomj2b/amzW2Hx6CKlWRIZIqrgbryn1O8incwYVGduS6A9VeWRVvv9rzt3tyE82iG8lGCUNuCQ==",
+  "dgSpecHash": "mD7aYp8ISr0qQGARRtJcP6ldNd4dQ/BigxMN3wZ1ycL4W+e2c6QeBdbOYzRidjVcaipT/N4dsY9uDzp9+tw+ag==",
   "success": true,
-  "projectFilePath": "C:\\Users\\mehmet.ulker\\Desktop\\EHBB\\Ehbb.Data.Entities\\Ehbb.Data.Entities.csproj",
+  "projectFilePath": "C:\\Users\\mehmet.ulker\\Desktop\\Ehbb\\Ehbb.Data.Entities\\Ehbb.Data.Entities.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\mehmet.ulker\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\mehmet.ulker\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",

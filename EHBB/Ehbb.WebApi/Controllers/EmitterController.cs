@@ -7,6 +7,7 @@ using FluentValidation;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Data;
+using System.Net;
 
 namespace Ehbb.WebApi.Controllers
 {
@@ -29,6 +30,8 @@ namespace Ehbb.WebApi.Controllers
         }
 
         [HttpGet("Emitter")]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.OK)]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.InternalServerError)]
         public async Task<IActionResult> GetEmitters()
         {
             try
@@ -44,6 +47,8 @@ namespace Ehbb.WebApi.Controllers
         }
 
         [HttpGet("Mode")]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.OK)]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.InternalServerError)]
         public async Task<IActionResult> GetEmitterModes()
         {
             try
@@ -59,6 +64,9 @@ namespace Ehbb.WebApi.Controllers
         }
 
         [HttpGet("Emitter/{id}")]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.NotFound)]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.OK)]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.InternalServerError)]
         public async Task<IActionResult> GetEmitter(int id)
         {
             try
@@ -76,6 +84,9 @@ namespace Ehbb.WebApi.Controllers
         }
 
         [HttpGet("Mode/{id}")]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.NotFound)]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.OK)]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.InternalServerError)]
         public async Task<IActionResult> GetEmitterMode(int id)
         {
             try
@@ -93,6 +104,9 @@ namespace Ehbb.WebApi.Controllers
         }
 
         [HttpPost("Emitter")]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.BadRequest)]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.NoContent)]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.InternalServerError)]
         public async Task<IActionResult> AddEmitter(EmitterDTO emitterDTO)
         {
             var validationResult = await _emitterValidator.ValidateAsync(emitterDTO);
@@ -113,6 +127,9 @@ namespace Ehbb.WebApi.Controllers
         }
 
         [HttpPost("Mode")]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.BadRequest)]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.NoContent)]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.InternalServerError)]
         public async Task<IActionResult> AddEmitterMode(EmitterModeDTO emitterModeDTO)
         {
             var validationResult = await _emitterModeValidator.ValidateAsync(emitterModeDTO);
@@ -133,6 +150,9 @@ namespace Ehbb.WebApi.Controllers
         }
 
         [HttpPut("Emitter/{id}")]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.BadRequest)]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.NoContent)]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.InternalServerError)]
         public async Task<IActionResult> UpdateEmitter(int id, EmitterDTO emitterDTO)
         {
             var validationResult = await _emitterValidator.ValidateAsync(emitterDTO);
@@ -157,6 +177,9 @@ namespace Ehbb.WebApi.Controllers
         }
 
         [HttpPut("Mode/{id}")]
+        [ProducesResponseType(statusCode:(int)HttpStatusCode.BadRequest)]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.NoContent)]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.InternalServerError)]
         public async Task<IActionResult> UpdateEmitterMode(int id, EmitterModeDTO emitterModeDTO)
         {
             var validationResult = await _emitterModeValidator.ValidateAsync(emitterModeDTO);
@@ -181,6 +204,8 @@ namespace Ehbb.WebApi.Controllers
         }
 
         [HttpDelete("Emitter")]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.BadRequest)]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.NoContent)]
         public async Task<IActionResult> DeleteEmitter(EmitterDTO emitterDTO)
         {
             var validationResult = await _emitterValidator.ValidateAsync(emitterDTO);
@@ -201,6 +226,8 @@ namespace Ehbb.WebApi.Controllers
         }
 
         [HttpDelete("Mode")]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.BadRequest)]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.NoContent)]
         public async Task<IActionResult> DeleteEmitterMode(EmitterModeDTO emitterModeDTO)
         {
             var validationResult = await _emitterModeValidator.ValidateAsync(emitterModeDTO);

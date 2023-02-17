@@ -5,6 +5,7 @@ using Ehbb.Domain.Services.Service_Interfaces;
 using FluentValidation;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Net;
 
 namespace Ehbb.WebApi.Controllers
 {
@@ -25,6 +26,8 @@ namespace Ehbb.WebApi.Controllers
         }
 
         [HttpGet("Platform")]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.OK)]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.InternalServerError)]
         public async Task<IActionResult> GetPlatforms()
         {
             try
@@ -39,6 +42,8 @@ namespace Ehbb.WebApi.Controllers
             }
         }
         [HttpGet("Platform/{id}")]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.OK)]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.InternalServerError)]
         public async Task<IActionResult> GetPlatform(int id)
         {
             try
@@ -53,6 +58,9 @@ namespace Ehbb.WebApi.Controllers
             }
         }
         [HttpPost("Platform")]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.BadRequest)]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.NoContent)]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.InternalServerError)]
         public async Task<IActionResult> AddPlatform(PlatformDTO platformDTO)
         {
             var validationResult = await _platformValidator.ValidateAsync(platformDTO);
@@ -69,6 +77,9 @@ namespace Ehbb.WebApi.Controllers
             }
         }
         [HttpPut("Platform")]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.BadRequest)]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.NoContent)]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.InternalServerError)]
         public async Task<IActionResult> UpdatePlatform(int platId, PlatformDTO platformDTO)
         {
             var validationResult = await _platformValidator.ValidateAsync(platformDTO);
@@ -91,6 +102,9 @@ namespace Ehbb.WebApi.Controllers
             }
         }
         [HttpDelete("Platform")]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.BadRequest)]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.NoContent)]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.InternalServerError)]
         public async Task<IActionResult> DeletePlatform(PlatformDTO platformDTO)
         {
             var validationResult = await _platformValidator.ValidateAsync(platformDTO);
@@ -111,6 +125,8 @@ namespace Ehbb.WebApi.Controllers
             }
         }
         [HttpGet("PlatformEmitter")]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.OK)]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.InternalServerError)]
         public async Task<IActionResult> GetAllPlatformEmitterElements()
         {
             try
@@ -125,6 +141,8 @@ namespace Ehbb.WebApi.Controllers
             }
         }
         [HttpGet("PlatformEmitter/{platformId}")]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.OK)]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.InternalServerError)]
         public async Task<IActionResult> GetAllEmittersByPlatformId(int platformId)
         {
             try
@@ -139,6 +157,8 @@ namespace Ehbb.WebApi.Controllers
             }
         }
         [HttpPost("PlatformEmitter")]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.NoContent)]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.InternalServerError)]
         public async Task<IActionResult> AddPlatformEmitterElement(PlatformEmitterDTO platformEmitterDTO)
         {
             try
@@ -153,6 +173,8 @@ namespace Ehbb.WebApi.Controllers
             }
         }
         [HttpDelete("PlatformEmitter")]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.NoContent)]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.InternalServerError)]
         public async Task<IActionResult> DeletePlatformEmitterAsync(PlatformEmitterDTO platformEmitterDTO)
         {
             try
@@ -167,6 +189,8 @@ namespace Ehbb.WebApi.Controllers
             }
         }
         [HttpDelete("PlatformEmitter/{platformId}")]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.NoContent)]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.InternalServerError)]
         public async Task<IActionResult> DeleteElementsIncludePlatformForPlatformEmitter(int platformId)
         {
             try
@@ -181,6 +205,8 @@ namespace Ehbb.WebApi.Controllers
             }
         }
         [HttpDelete("PlatformEmitter/{emitterId}")]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.NoContent)]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.InternalServerError)]
         public async Task<IActionResult> DeleteElementsIncludeEmitter(int emitterId)
         {
             try
@@ -195,6 +221,8 @@ namespace Ehbb.WebApi.Controllers
             }
         }
         [HttpPut("PlatformEmitter")]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.NoContent)]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.InternalServerError)]
         public async Task<IActionResult> UpdatePlatformEmitter(PlatformEmitterDTO platformEmitterDTO)
         {
             try
@@ -209,6 +237,8 @@ namespace Ehbb.WebApi.Controllers
             }
         }
         [HttpGet("PlatformLaser")]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.OK)]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.InternalServerError)]
         public async Task<IActionResult> GetAllPlatformLasersElements()
         {
             try
@@ -223,6 +253,8 @@ namespace Ehbb.WebApi.Controllers
             }
         }
         [HttpGet("PlatformLaser/{platformId}")]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.OK)]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.InternalServerError)]
         public async Task<IActionResult> GetAllLasersByPlatformId(int platformId)
         {
             try
@@ -237,6 +269,8 @@ namespace Ehbb.WebApi.Controllers
             }
         }
         [HttpPost("PlatformLaser")]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.NoContent)]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.InternalServerError)]
         public async Task<IActionResult> AddPlatformLaserElement(PlatformLaserDTO platformLaserDTO)
         {
             try
@@ -251,6 +285,8 @@ namespace Ehbb.WebApi.Controllers
             }
         }
         [HttpDelete("PlatformLaser")]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.NoContent)]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.InternalServerError)]
         public async Task<IActionResult> DeletePlatformLaserAsync(PlatformLaserDTO platformLaserDTO)
         {
             try
@@ -265,6 +301,8 @@ namespace Ehbb.WebApi.Controllers
             }
         }
         [HttpDelete("PlatformLaser/{platformId}")]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.NoContent)]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.InternalServerError)]
         public async Task<IActionResult> DeleteElementsIncludePlatformForPlatformLaser(int platformId)
         {
             try
@@ -279,6 +317,8 @@ namespace Ehbb.WebApi.Controllers
             }
         }
         [HttpDelete("PlatformLaser/{laserId}")]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.NoContent)]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.InternalServerError)]
         public async Task<IActionResult> DeleteElementsIncludeLaser(int laserId)
         {
             try
@@ -293,6 +333,8 @@ namespace Ehbb.WebApi.Controllers
             }
         }
         [HttpPut("PlatformLaser")]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.NoContent)]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.InternalServerError)]
         public async Task<IActionResult> UpdatePlatformLaser(PlatformLaserDTO platformLaserDTO)
         {
             try

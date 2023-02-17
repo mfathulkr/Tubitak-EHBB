@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
+using System.Net;
 using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
@@ -35,6 +36,8 @@ namespace Ehbb.WebApi.Controllers
         }
 
         [HttpPost("login")]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.OK)]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.BadRequest)]
         public async Task<ActionResult<string>> Login(LoginDTO request)
         {
             var userDTO = await _authService.IsPresentAsync(request);
@@ -67,6 +70,8 @@ namespace Ehbb.WebApi.Controllers
         }
 
         [HttpPost("refresh-token")]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.OK)]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.Unauthorized)]
         public async Task<ActionResult<string>> RefreshToken(LoginDTO logindto)
         {
             var refreshToken = Request.Cookies["refreshToken"];
@@ -91,6 +96,8 @@ namespace Ehbb.WebApi.Controllers
         }
 
         [HttpDelete("logout")]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.NoContent)]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.BadRequest)]
         public async Task<IActionResult> Logout(LoginDTO logindto)
         {
             var userDTO = await _authService.IsPresentAsync(logindto);

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\mehmet.ulker\\Desktop\\EHBB\\Ehbb.Data.Entities\\Ehbb.Data.Entities.csproj": {}
+    "C:\\Users\\mehmet.ulker\\Desktop\\Ehbb\\Ehbb.Data.Entities\\Ehbb.Data.Entities.csproj": {}
   },
   "projects": {
-    "C:\\Users\\mehmet.ulker\\Desktop\\EHBB\\Ehbb.Data.Entities\\Ehbb.Data.Entities.csproj": {
+    "C:\\Users\\mehmet.ulker\\Desktop\\Ehbb\\Ehbb.Data.Entities\\Ehbb.Data.Entities.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mehmet.ulker\\Desktop\\EHBB\\Ehbb.Data.Entities\\Ehbb.Data.Entities.csproj",
+        "projectUniqueName": "C:\\Users\\mehmet.ulker\\Desktop\\Ehbb\\Ehbb.Data.Entities\\Ehbb.Data.Entities.csproj",
         "projectName": "Ehbb.Data.Entities",
-        "projectPath": "C:\\Users\\mehmet.ulker\\Desktop\\EHBB\\Ehbb.Data.Entities\\Ehbb.Data.Entities.csproj",
+        "projectPath": "C:\\Users\\mehmet.ulker\\Desktop\\Ehbb\\Ehbb.Data.Entities\\Ehbb.Data.Entities.csproj",
         "packagesPath": "C:\\Users\\mehmet.ulker\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mehmet.ulker\\Desktop\\EHBB\\Ehbb.Data.Entities\\obj\\",
+        "outputPath": "C:\\Users\\mehmet.ulker\\Desktop\\Ehbb\\Ehbb.Data.Entities\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

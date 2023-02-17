@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "BmxFkOdErWQatly6JH7NDVaqS9srP/AU66qPbnwh111ld7EQQF7rq2BUz/3OqhRuw6Bq18jY+XCQK6fyR3q7pg==",
+  "dgSpecHash": "AIPp7NZ6kAmY/JY49MwcVlD4Fd2bGmEe8KZ4+n+ZmgbG4+WCpNwGR8HbsDq4xWgi+H4G2i2lIXDtNWT6e0fleA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\mehmet.ulker\\Desktop\\EHBB\\Ehbb.WebApi\\Ehbb.WebApi.csproj",
+  "projectFilePath": "C:\\Users\\mehmet.ulker\\Desktop\\Ehbb\\Ehbb.WebApi\\Ehbb.WebApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\mehmet.ulker\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\mehmet.ulker\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.0\\automapper.extensions.microsoft.dependencyinjection.12.0.0.nupkg.sha512",

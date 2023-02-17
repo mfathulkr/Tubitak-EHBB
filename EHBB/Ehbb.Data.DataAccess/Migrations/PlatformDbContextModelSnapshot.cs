@@ -44,6 +44,9 @@ namespace Ehbb.Data.DataAccess.Migrations
                     b.Property<string>("Notation")
                         .HasColumnType("text");
 
+                    b.Property<int?>("NumOfModes")
+                        .HasColumnType("integer");
+
                     b.Property<string>("SpotNo")
                         .IsRequired()
                         .HasColumnType("text");
@@ -173,10 +176,10 @@ namespace Ehbb.Data.DataAccess.Migrations
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("PlatformID"));
 
                     b.Property<DateTime>("DateCreated")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamp without time zone");
 
                     b.Property<DateTime>("DateLastUpdated")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamp without time zone");
 
                     b.Property<double>("Height")
                         .HasColumnType("double precision");

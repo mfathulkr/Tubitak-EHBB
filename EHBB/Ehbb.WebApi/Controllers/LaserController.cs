@@ -4,6 +4,7 @@ using Ehbb.Domain.Services.Services;
 using FluentValidation;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Net;
 
 namespace Ehbb.WebApi.Controllers
 {
@@ -26,6 +27,8 @@ namespace Ehbb.WebApi.Controllers
         }
 
         [HttpGet("Laser")]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.OK)]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.InternalServerError)]
         public async Task<IActionResult> GetLasers()
         {
             try
@@ -41,6 +44,8 @@ namespace Ehbb.WebApi.Controllers
         }
 
         [HttpGet("Mode")]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.OK)]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.InternalServerError)]
         public async Task<IActionResult> GetLaserModes()
         {
             try
@@ -56,6 +61,9 @@ namespace Ehbb.WebApi.Controllers
         }
 
         [HttpGet("Laser/{id}")]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.NotFound)]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.OK)]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.InternalServerError)]
         public async Task<IActionResult> GetLaser(int id)
         {
             try
@@ -73,6 +81,9 @@ namespace Ehbb.WebApi.Controllers
         }
 
         [HttpGet("Mode/{id}")]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.NotFound)]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.OK)]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.InternalServerError)]
         public async Task<IActionResult> GetLaserMode(int id)
         {
             try
@@ -90,6 +101,9 @@ namespace Ehbb.WebApi.Controllers
         }
 
         [HttpPost("Laser")]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.BadRequest)]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.NoContent)]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.InternalServerError)]
         public async Task<IActionResult> AddLaser(LaserDTO laserDTO)
         {
             var validationResult = await _laserValidator.ValidateAsync(laserDTO);
@@ -111,6 +125,9 @@ namespace Ehbb.WebApi.Controllers
         }
 
         [HttpPost("Mode")]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.BadRequest)]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.NoContent)]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.InternalServerError)]
         public async Task<IActionResult> AddLaserMode(LaserModeDTO laserModeDTO)
         {
             var validationResult = await _laserModeValidator.ValidateAsync(laserModeDTO);
@@ -132,6 +149,9 @@ namespace Ehbb.WebApi.Controllers
         }
 
         [HttpPut("Laser/{id}")]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.BadRequest)]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.NoContent)]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.InternalServerError)]
         public async Task<IActionResult> UpdateLaser(int id, LaserDTO laserDTO)
         {
             var validationResult = await _laserValidator.ValidateAsync(laserDTO);
@@ -155,6 +175,9 @@ namespace Ehbb.WebApi.Controllers
             }
         }
         [HttpPut("Mode/{id}")]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.BadRequest)]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.NoContent)]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.InternalServerError)]
         public async Task<IActionResult> UpdateLaserMode(int id, LaserModeDTO laserModeDTO)
         {
             var validationResult = await _laserModeValidator.ValidateAsync(laserModeDTO);
@@ -178,6 +201,8 @@ namespace Ehbb.WebApi.Controllers
             }
         }
         [HttpDelete("Laser")]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.BadRequest)]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.NoContent)]
         public async Task<IActionResult> DeleteLaser(LaserDTO laserDTO)
         {
             var validationResult = await _laserValidator.ValidateAsync(laserDTO);
@@ -199,6 +224,8 @@ namespace Ehbb.WebApi.Controllers
         }
 
         [HttpDelete("Mode")]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.BadRequest)]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.NoContent)]
         public async Task<IActionResult> DeleteLaserMode(LaserModeDTO laserModeDTO)
         {
             var validationResult = await _laserModeValidator.ValidateAsync(laserModeDTO);

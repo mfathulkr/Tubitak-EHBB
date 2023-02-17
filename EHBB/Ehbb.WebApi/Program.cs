@@ -17,6 +17,9 @@ using Swashbuckle.AspNetCore.Filters;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using Ehbb.Data.Repositories;
+using Ehbb.Domain.Services;
+using Ehbb.Data.Validation;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -24,19 +27,11 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEhbbDbContexts(builder.Configuration);
 AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
 
-builder.Services.AddScoped<IEmitterService, EmitterService>();
-builder.Services.AddScoped<ILaserService, LaserService>();
-builder.Services.AddScoped<IUserService, UserService>();
-builder.Services.AddScoped<IPlatformService, PlatformService>();
-builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddEhbbServices();
 
-builder.Services.AddScoped<IUserRepo, UserRepo>();
-builder.Services.AddScoped<ILaserRepo, LaserRepo>();
-builder.Services.AddScoped<IEmittersRepo, EmitterRepo>();
-builder.Services.AddScoped<IPlatformRepo, PlatformRepo>();
+builder.Services.AddEhbbRepository();
 
 
-//builder.Services.AddAutoMapper(typeof(UserRoleProfile), typeof(LaserProfile), typeof(EmitterProfile));
 builder.Services.AddHttpContextAccessor();
 builder.Services
     .AddControllers()
@@ -45,18 +40,12 @@ builder.Services
         options.ImplicitlyValidateChildProperties = true;
         options.ImplicitlyValidateRootCollectionElements = true;
 
-        //options.RegisterValidatorsFromAssemblies(AppDomain.CurrentDomain.GetAssemblies().Where(p => !p.IsDynamic));
     });
 
 builder.Services.AddTransient(typeof(ILogger<>), typeof(Logger<>));
 
-builder.Services.AddTransient<IValidator<UserDTO>, UserValidator>();
-builder.Services.AddTransient<IValidator<LaserModeDTO>, LaserModeValidator>();
-builder.Services.AddTransient<IValidator<EmitterModeDTO>, EmitterModeValidator>();
-builder.Services.AddTransient<IValidator<EmitterDTO>, EmitterValidator>();
-builder.Services.AddTransient<IValidator<LaserDTO>, LaserValidator>();
-builder.Services.AddTransient<IValidator<RoleDTO>, RoleValidator>();
-builder.Services.AddTransient<IValidator<PlatformDTO>, PlatformValidator>();
+builder.Services.AddEhbbValidator();
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options =>

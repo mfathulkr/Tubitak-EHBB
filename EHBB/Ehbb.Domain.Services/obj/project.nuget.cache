@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "1kvWk1J5QD9FtspT/ISU+0MDYQFyVax8YXc5KdW+5DtWAh+U+2TGLIg/Z2MOmOiGj7073VPusnk8sFaoCKBaGg==",
+  "dgSpecHash": "gh4MTSWrHqjrjTNKq5ylcyRUTRgmJ6fJqNTBSPEg6wTdzDmHRezQtY+hl5CzNBuAunUSdByxl39KUk7O9hWngA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\mehmet.ulker\\Desktop\\EHBB\\Ehbb.Domain.Services\\Ehbb.Domain.Services.csproj",
+  "projectFilePath": "C:\\Users\\mehmet.ulker\\Desktop\\Ehbb\\Ehbb.Domain.Services\\Ehbb.Domain.Services.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\mehmet.ulker\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\mehmet.ulker\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",

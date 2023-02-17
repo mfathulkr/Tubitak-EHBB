@@ -4,6 +4,7 @@ using Ehbb.Domain.Services.Services;
 using FluentValidation;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Net;
 
 namespace Ehbb.WebApi.Controllers
 {
@@ -26,6 +27,8 @@ namespace Ehbb.WebApi.Controllers
         }
 
         [HttpGet("User")]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.OK)]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.InternalServerError)]
         public async Task<IActionResult> GetUsers()
         {
             try
@@ -41,6 +44,9 @@ namespace Ehbb.WebApi.Controllers
         }
 
         [HttpGet("User/{id}")]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.NotFound)]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.NoContent)]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.InternalServerError)]
         public async Task<IActionResult> GetUser(int id)
         {
             try
@@ -58,6 +64,9 @@ namespace Ehbb.WebApi.Controllers
         }
 
         [HttpPost("User")]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.BadRequest)]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.NoContent)]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.InternalServerError)]
         public async Task<IActionResult> AddUser(UserDTO userDTO)
         {
             var validationResult = await _userValidator.ValidateAsync(userDTO);
@@ -79,6 +88,9 @@ namespace Ehbb.WebApi.Controllers
         }
 
         [HttpPut("User/{id}")]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.BadRequest)]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.NoContent)]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.InternalServerError)]
         public async Task<IActionResult> UpdateUser(int id, UserDTO userDTO)
         {
             var validationResult = await _userValidator.ValidateAsync(userDTO);
@@ -103,6 +115,9 @@ namespace Ehbb.WebApi.Controllers
         }
 
         [HttpDelete("User")]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.BadRequest)]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.NoContent)]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.InternalServerError)]
         public async Task<IActionResult> DeleteUser(UserDTO userDTO)
         {
             var validationResult = await _userValidator.ValidateAsync(userDTO);
@@ -124,6 +139,8 @@ namespace Ehbb.WebApi.Controllers
         }
 
         [HttpGet("Role")]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.OK)]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.InternalServerError)]
         public async Task<IActionResult> GetRoles()
         {
             try
@@ -139,6 +156,9 @@ namespace Ehbb.WebApi.Controllers
         }
 
         [HttpGet("Role/{id}")]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.NotFound)]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.OK)]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.InternalServerError)]
         public async Task<IActionResult> GetRole(int id)
         {
             try
@@ -156,6 +176,9 @@ namespace Ehbb.WebApi.Controllers
         }
 
         [HttpPost("Role")]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.BadRequest)]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.NoContent)]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.InternalServerError)]
         public async Task<IActionResult> AddRole(RoleDTO roleDTO)
         {
             var validationResult = await _roleValidator.ValidateAsync(roleDTO);
@@ -177,6 +200,9 @@ namespace Ehbb.WebApi.Controllers
         }
 
         [HttpPut("Role/{id}")]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.BadRequest)]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.NoContent)]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.InternalServerError)]
         public async Task<IActionResult> UpdateRole(int id, RoleDTO roleDTO)
         {
             var validationResult = await _roleValidator.ValidateAsync(roleDTO);
@@ -201,6 +227,8 @@ namespace Ehbb.WebApi.Controllers
         }
 
         [HttpDelete("Role")]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.BadRequest)]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.NoContent)]
         public async Task<IActionResult> DeleteRole(RoleDTO roleDTO)
         {
             var validationResult = await _roleValidator.ValidateAsync(roleDTO);
@@ -222,6 +250,8 @@ namespace Ehbb.WebApi.Controllers
         }
 
         [HttpGet("UserRole")]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.NoContent)]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.InternalServerError)]
         public async Task<IActionResult> GetUserRoles()
         {
             try
@@ -237,6 +267,8 @@ namespace Ehbb.WebApi.Controllers
         }
 
         [HttpGet("UserRole/{id}")]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.OK)]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.InternalServerError)]
         public async Task<IActionResult> GetUserRolesId(int id)
         {
             try
@@ -253,6 +285,8 @@ namespace Ehbb.WebApi.Controllers
 
 
         [HttpPost("UserRole")]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.NoContent)]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.InternalServerError)]
         public async Task<IActionResult> AddUserRole(UserRoleDTO userRoleDto)
         {
             try
@@ -268,6 +302,9 @@ namespace Ehbb.WebApi.Controllers
         }
 
         [HttpPut("UserRole/{id}")]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.BadRequest)]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.NoContent)]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.InternalServerError)]
         public async Task<IActionResult> UpdateUserRole(int id, UserRoleDTO userRoleDTO)
         {
             if (id != userRoleDTO.UserRoleID)
@@ -284,6 +321,8 @@ namespace Ehbb.WebApi.Controllers
             }
         }
         [HttpDelete("UserRole")]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.BadRequest)]
+        [ProducesResponseType(statusCode: (int)HttpStatusCode.NoContent)]
         public async Task<IActionResult> DeleteUserRole(UserRoleDTO userRoleDTO)
         {
             try

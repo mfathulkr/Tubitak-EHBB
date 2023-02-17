@@ -15,9 +15,9 @@ namespace Ehbb.Data.Entities.Entities
         public string SpotNo { get; set; }
         public string EmitterFunction { get; set; }
         public string? EmitterDescription { get; set; }
-        
+        public int? NumOfModes { get; set; }
+
         public ICollection<EmitterMode> EmitterModes { get; set; }
-        public int? NumOfModes { get { return EmitterModes.Count; } }
 
     }
 }
